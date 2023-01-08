@@ -1,14 +1,11 @@
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Main from '../components/Main';
+import HeroSection from '../components/HeroSection';
+import PageLayout from '../components/PageLayout';
 
 const HomePage = () => {
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+    <PageLayout>
+      <HeroSection />
+    </PageLayout>
   );
 };
 

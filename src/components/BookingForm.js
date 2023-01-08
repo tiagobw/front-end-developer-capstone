@@ -1,17 +1,9 @@
 import { useState } from 'react';
 import { formatDate } from '../utils/formatDate';
 
-const BookingForm = () => {
+const BookingForm = ({ availableTimes, dispatch }) => {
   const formattedTodayDate = formatDate(new Date());
   const [date, setDate] = useState(formattedTodayDate);
-  const [availableTimes, setAvailableTimes] = useState([
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ]);
   const [time, setTime] = useState('17:00');
   const [guestsNumber, setGuestsNumber] = useState('1');
   const [occasion, setOccasion] = useState('birthday');
@@ -20,7 +12,13 @@ const BookingForm = () => {
   const guestsId = 'guests';
   const occasionId = 'occasion';
   const mapInputNameToSetState = {
-    [reservationDateId]: setDate,
+    [reservationDateId]: (value) => {
+      setDate(value);
+      dispatch({
+        type: 'update',
+        payload: value,
+      });
+    },
     [reservationTimeId]: setTime,
     [guestsId]: setGuestsNumber,
     [occasionId]: setOccasion,
@@ -48,7 +46,7 @@ const BookingForm = () => {
       />
       <label htmlFor='res-time'>Choose time</label>
       <select value={time} onChange={handleChange} id={reservationTimeId}>
-        {availableTimes.map((availableTime) => (
+        {availableTimes?.map((availableTime) => (
           <option key={availableTime} value={availableTime}>
             {availableTime}
           </option>

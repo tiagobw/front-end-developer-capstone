@@ -1,11 +1,5 @@
-import HeroSection from './HeroSection';
-
-const Main = ({ className }) => {
-  return (
-    <main className={className}>
-      <HeroSection />
-    </main>
-  );
+const Main = ({ children }) => {
+  return <main>{children}</main>;
 };
 
 export default Main;
