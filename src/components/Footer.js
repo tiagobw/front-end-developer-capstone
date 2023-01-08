@@ -1,9 +1,9 @@
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/svg/logo.svg';
 import Nav from './Nav';
 
-const Footer = () => {
+const Footer = ({ className }) => {
   return (
-    <footer>
+    <footer className={className}>
       <a href='/'>
         <img src={logo} alt='Little Lemon' />
       </a>

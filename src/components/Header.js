@@ -1,13 +1,24 @@
-import Nav from './Nav';
-import logo from '../assets/images/logo.svg';
+import NavHeader from './NavHeader';
+import { useNavHeader } from '../hooks/useNavHeader';
 
-const Header = () => {
+import logo from '../assets/images/svg/logo.svg';
+import hamburgerMenu from '../assets/images/svg/hamburgerMenu.svg';
+
+const Header = ({ className }) => {
+  const { isVisible, handleIsVisible } = useNavHeader();
+
   return (
-    <header>
+    <header className='header container'>
       <a href='/'>
         <img src={logo} alt='Little Lemon' />
       </a>
-      <Nav />
+      <img
+        src={hamburgerMenu}
+        alt='Hamburger Menu'
+        className='hamburger-menu'
+        onClick={() => handleIsVisible(true)}
+      />
+      <NavHeader isVisible={isVisible} onClick={handleIsVisible} />
     </header>
   );
 };

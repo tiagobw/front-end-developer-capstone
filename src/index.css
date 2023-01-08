@@ -1,3 +1,14 @@
+:root {
+  --green: #495e57;
+  --yellow: #f4ce14;
+  --dark-salmon: #ee9972;
+  --light-salmon: #fbdabb;
+  --light-gray: #edefee;
+  --dark-gray: #333333;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -32,6 +43,11 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -40,4 +56,143 @@ img {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  background-color: var(--white);
+}
+
+.container {
+  position: relative;
+  padding: 1rem;
+}
+
+.nav-header__container {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  display: flex;
+  padding: 4rem 0 0 4rem;
+  background-color: var(--dark-gray);
+  color: var(--white);
+  width: 75vw;
+  height: 100vh;
+  transition: 750ms;
+}
+
+.nav-header__container--visible {
+  right: 0;
+}
+
+.nav-header__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.nav-header > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hamburger-menu {
+  cursor: pointer;
+  width: 1.8rem;
+}
+
+main {
+  width: 100%;
+}
+
+.hero-section__wrapper {
+  height: 21.6875rem;
+  background-color: var(--green);
+}
+
+.hero-section {
+  height: 100%;
+}
+
+.hero-section__title {
+  font-family: 'Markazi Text', serif;
+  color: var(--yellow);
+  font-size: 4rem;
+  margin-top: -1rem;
+}
+
+.hero-section__subtitle {
+  font-family: 'Markazi Text', serif;
+  color: var(--light-gray);
+  font-size: 2.5rem;
+  margin-top: -1rem;
+}
+
+.hero-section__paragraph {
+  line-height: 1.2;
+  margin-top: 1rem;
+  width: 50vw;
+  color: var(--light-gray);
+}
+
+.hero-section__img {
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  right: 1rem;
+  position: absolute;
+  width: 8.5rem;
+  height: 8.5rem;
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 1024px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-section__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .container {
+    width: 56.25rem;
+    padding: 1.25rem;
+  }
+
+  .nav-header__container {
+    display: flex;
+  }
+
+  .nav-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-header > ul {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
 }
