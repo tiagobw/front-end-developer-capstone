@@ -1,3 +1,5 @@
+import Button from './Button';
+
 import restaurantFood from '../assets/images/jpg/restaurantFood.jpg';
 
 const HeroSection = () => {
@@ -10,7 +12,7 @@ const HeroSection = () => {
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
-        <button>Reserve a table</button>
+        <Button>Reserve a table</Button>
         <img
           className='hero-section__img'
           src={restaurantFood}
