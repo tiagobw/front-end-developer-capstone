@@ -1,15 +1,22 @@
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Main from './components/Main';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ErrorPage from './pages/ErrorPage';
+import BookingPage from './pages/BookingPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/booking',
+    element: <BookingPage />,
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom';
+
 import logo from '../assets/images/svg/logo.svg';
 import Nav from './Nav';
 
 const Footer = ({ className }) => {
   return (
     <footer className={className}>
-      <a href='/'>
+      <Link to='/'>
         <img src={logo} alt='Little Lemon' />
-      </a>
+      </Link>
       <section>
         <h4>Navigation</h4>
         <Nav />

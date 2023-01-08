@@ -3,15 +3,16 @@ import { useNavHeader } from '../hooks/useNavHeader';
 
 import logo from '../assets/images/svg/logo.svg';
 import hamburgerMenu from '../assets/images/svg/hamburgerMenu.svg';
+import { Link } from 'react-router-dom';
 
 const Header = ({ className }) => {
   const { isVisible, handleIsVisible } = useNavHeader();
 
   return (
     <header className='header container'>
-      <a href='/'>
+      <Link to='/'>
         <img src={logo} alt='Little Lemon' />
-      </a>
+      </Link>
       <img
         src={hamburgerMenu}
         alt='Hamburger Menu'
