@@ -1,0 +1,18 @@
+.button {
+  cursor: pointer;
+  border: 0;
+  background-color: var(--yellow);
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 200ms ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  filter: brightness(0.9);
+}
