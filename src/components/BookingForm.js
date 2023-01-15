@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { formatDate } from '../utils/formatDate';
 
-const BookingForm = ({ availableTimes, dispatch }) => {
+const BookingForm = ({ availableTimes, dispatch, onSubmit }) => {
   const formattedTodayDate = formatDate(new Date());
   const [date, setDate] = useState(formattedTodayDate);
   const [time, setTime] = useState('17:00');
@@ -23,6 +23,12 @@ const BookingForm = ({ availableTimes, dispatch }) => {
     [guestsId]: setGuestsNumber,
     [occasionId]: setOccasion,
   };
+  const formData = {
+    date,
+    time,
+    guestsNumber,
+    occasion,
+  };
 
   const handleChange = (e) => {
     mapInputNameToSetState[e.target.id](e.target.value);
@@ -30,6 +36,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onSubmit(formData);
   };
 
   return (
