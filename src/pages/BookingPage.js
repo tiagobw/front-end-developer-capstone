@@ -3,20 +3,14 @@ import { useReducer } from 'react';
 import BookingForm from '../components/BookingForm';
 import PageLayout from '../components/PageLayout';
 
-export const initializeTimes = () => [
-  '17:00',
-  '18:00',
-  '19:00',
-  '20:00',
-  '21:00',
-  '22:00',
-];
+// eslint-disable-next-line no-undef
+export const initializeTimes = () => fetchAPI(new Date());
 
 export function updateTimes(state, action) {
-  console.log('action:', action);
   switch (action.type) {
     case 'update':
-      return [...state];
+      // eslint-disable-next-line no-undef
+      return fetchAPI(action.payload);
     default:
       throw new Error();
   }

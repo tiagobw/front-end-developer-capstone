@@ -16,7 +16,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
       setDate(value);
       dispatch({
         type: 'update',
-        payload: value,
+        payload: new Date(value + 'T00:00:00'),
       });
     },
     [reservationTimeId]: setTime,
