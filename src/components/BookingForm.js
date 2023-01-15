@@ -23,6 +23,9 @@ const BookingForm = ({ availableTimes, dispatch, onSubmit }) => {
     [guestsId]: setGuestsNumber,
     [occasionId]: setOccasion,
   };
+  const isButtonDisabled =
+    Number(guestsNumber) < 1 ||
+    new Date(date + 'T00:00:00') < new Date(formattedTodayDate + 'T00:00:00');
   const formData = {
     date,
     time,
@@ -47,6 +50,7 @@ const BookingForm = ({ availableTimes, dispatch, onSubmit }) => {
       <label htmlFor='res-date'>Choose date</label>
       <input
         value={date}
+        min={formattedTodayDate}
         onChange={handleChange}
         type='date'
         id={reservationDateId}
@@ -74,7 +78,11 @@ const BookingForm = ({ availableTimes, dispatch, onSubmit }) => {
         <option value='birthday'>Birthday</option>
         <option value='anniversary'>Anniversary</option>
       </select>
-      <input type='submit' value='Make Your reservation' />
+      <input
+        disabled={isButtonDisabled}
+        type='submit'
+        value='Make Your reservation'
+      />
     </form>
   );
 };
